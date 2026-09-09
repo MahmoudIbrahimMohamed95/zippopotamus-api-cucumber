@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ========================================================= -->
+    <!-- Project Information                                       -->
+    <!-- ========================================================= -->
+
+    <groupId>org.example</groupId>
+    <artifactId>Cucumber_Api</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <!-- ========================================================= -->
+    <!-- Properties                                                -->
+    <!-- ========================================================= -->
+
+    <properties>
+
+        <!-- Java -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Cucumber -->
+        <cucumber.version>7.27.2</cucumber.version>
+
+        <!-- TestNG -->
+        <testng.version>7.11.0</testng.version>
+
+        <!-- REST Assured -->
+        <rest-assured.version>5.5.6</rest-assured.version>
+
+        <!-- Allure -->
+        <allure.version>2.29.1</allure.version>
+
+        <!-- Jackson -->
+        <jackson.version>2.20.0</jackson.version>
+
+        <!-- Maven Surefire -->
+        <maven.surefire.version>3.5.4</maven.surefire.version>
+
+        <!-- Maven Compiler -->
+        <maven.compiler.version>3.14.1</maven.compiler.version>
+
+    </properties>
+
+
+    <!-- ========================================================= -->
+    <!-- Dependencies                                              -->
+    <!-- ========================================================= -->
+
+    <dependencies>
+
+        <!-- ===================================================== -->
+        <!-- Cucumber                                               -->
+        <!-- ===================================================== -->
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Cucumber Dependency Injection -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- ===================================================== -->
+        <!-- JNA                                                    -->
+        <!-- ===================================================== -->
+
+        <!-- Required by Byte Buddy classpath scanning -->
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>5.18.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- ===================================================== -->
+        <!-- TestNG                                                 -->
+        <!-- ===================================================== -->
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+        <!-- ===================================================== -->
+        <!-- REST Assured                                           -->
+        <!-- ===================================================== -->
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- REST Assured JSON Schema Validation -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- ===================================================== -->
+        <!-- Jackson                                                -->
+        <!-- ===================================================== -->
+
+        <!-- Jackson is used for JSON <-> POJO serialization/deserialization -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+        <!-- ===================================================== -->
+        <!-- Allure                                                 -->
+        <!-- ===================================================== -->
+
+        <!-- Allure - Cucumber 7 -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+            <version>${allure.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+        <!-- ===================================================== -->
+        <!-- Apache Commons                                         -->
+        <!-- ===================================================== -->
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
+
+        <!-- ===================================================== -->
+        <!-- Logging                                                -->
+        <!-- ===================================================== -->
+
+        <!-- Log4j SLF4J Implementation -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.24.3</version>
+        </dependency>
+
+        <!-- Log4j Core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.24.3</version>
+        </dependency>
+
+        <!-- SLF4J API -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <!-- ========================================================= -->
+    <!-- Build                                                     -->
+    <!-- ========================================================= -->
+
+    <build>
+
+        <plugins>
+
+            <!-- ================================================= -->
+            <!-- Maven Compiler                                    -->
+            <!-- ================================================= -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+
+            <!-- ================================================= -->
+            <!-- Maven Surefire                                     -->
+            <!-- ================================================= -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+
+                <configuration>
+
+                    <!-- Surefire discovers the Cucumber/TestNG runner -->
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/*Tests.java</include>
+                        <include>**/*TestCase.java</include>
+                        <include>**/TestRunner.java</include>
+                    </includes>
+
+                    <!-- Required when working with Java modules/classpaths -->
+                    <useModulePath>false</useModulePath>
+
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
